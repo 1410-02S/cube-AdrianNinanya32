@@ -1,3 +1,9 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+
 public class Rubiks {
 
     String [][] cube = {{
@@ -90,6 +96,38 @@ public class Rubiks {
 
         switch (direction){
             case "c":
+                cube [eFace.current_face][0] = copy[eFace.current_face][6];
+                cube [eFace.current_face][1] = copy[eFace.current_face][3];
+                cube [eFace.current_face][2] = copy[eFace.current_face][0];
+                cube [eFace.current_face][3] = copy[eFace.current_face][7];
+                cube [eFace.current_face][5] = copy[eFace.current_face][1];
+                cube [eFace.current_face][6] = copy[eFace.current_face][8];
+                cube [eFace.current_face][7] = copy[eFace.current_face][5];
+                cube [eFace.current_face][8] = copy[eFace.current_face][2];
+
+                //Changing the edges in the left 
+                cube[eFace.edge1[0]][eFace.edge1[1]] = copy[eFace.edge4[0]][eFace.edge4[1]];
+                cube[eFace.edge1[0]][eFace.edge1[2]] = copy[eFace.edge4[0]][eFace.edge4[2]];
+                cube[eFace.edge1[0]][eFace.edge1[3]] = copy[eFace.edge4[0]][eFace.edge4[3]];
+
+                //Changing the edges on top 
+                cube[eFace.edge2[0]][eFace.edge2[1]] = copy[eFace.edge1[0]][eFace.edge1[1]];
+                cube[eFace.edge2[0]][eFace.edge2[2]] = copy[eFace.edge1[0]][eFace.edge1[2]];
+                cube[eFace.edge2[0]][eFace.edge2[3]] = copy[eFace.edge1[0]][eFace.edge1[3]];
+                
+                //Changin the edges in the right
+
+                cube[eFace.edge3[0]][eFace.edge3[1]] = copy[eFace.edge2[0]][eFace.edge2[1]];
+                cube[eFace.edge3[0]][eFace.edge3[2]] = copy[eFace.edge2[0]][eFace.edge2[2]];
+                cube[eFace.edge3[0]][eFace.edge3[3]] = copy[eFace.edge2[0]][eFace.edge2[3]];
+
+                //Changing the edges on bottom
+                cube[eFace.edge4[0]][eFace.edge4[1]] = copy[eFace.edge3[0]][eFace.edge3[1]];
+                cube[eFace.edge4[0]][eFace.edge4[2]] = copy[eFace.edge3[0]][eFace.edge3[2]];
+                cube[eFace.edge4[0]][eFace.edge4[3]] = copy[eFace.edge3[0]][eFace.edge3[3]];
+                break;
+
+            case "cc":
                 cube [eFace.current_face][0] = copy[eFace.current_face][2];
                 cube [eFace.current_face][1] = copy[eFace.current_face][5];
                 cube [eFace.current_face][2] = copy[eFace.current_face][8];
@@ -99,13 +137,26 @@ public class Rubiks {
                 cube [eFace.current_face][7] = copy[eFace.current_face][3];
                 cube [eFace.current_face][8] = copy[eFace.current_face][6];
 
-                //Changing the edges now
-                cube[eFace.edge1[0]][eFace.edge[1]]
+                //Changing the edges in the left
+                cube[eFace.edge1[0]][eFace.edge1[1]] = copy[eFace.edge2[0]][eFace.edge2[1]];
+                cube[eFace.edge1[0]][eFace.edge1[2]] = copy[eFace.edge2[0]][eFace.edge2[2]];
+                cube[eFace.edge1[0]][eFace.edge1[3]] = copy[eFace.edge2[0]][eFace.edge2[3]];
 
+                //Changing the edges in the top
+                cube[eFace.edge2[0]][eFace.edge2[1]] = copy[eFace.edge3[0]][eFace.edge3[1]];
+                cube[eFace.edge2[0]][eFace.edge2[2]] = copy[eFace.edge3[0]][eFace.edge3[2]];
+                cube[eFace.edge2[0]][eFace.edge2[3]] = copy[eFace.edge3[0]][eFace.edge3[3]];
 
+                //Changing the edges on the right
+                cube[eFace.edge3[0]][eFace.edge3[1]] = copy[eFace.edge4[0]][eFace.edge4[1]];
+                cube[eFace.edge3[0]][eFace.edge3[2]] = copy[eFace.edge4[0]][eFace.edge4[2]];
+                cube[eFace.edge3[0]][eFace.edge3[3]] = copy[eFace.edge4[0]][eFace.edge4[3]];
+
+                //Changing the edges on the bottom
+                cube[eFace.edge4[0]][eFace.edge4[1]] = copy[eFace.edge1[0]][eFace.edge1[1]];
+                cube[eFace.edge4[0]][eFace.edge4[2]] = copy[eFace.edge1[0]][eFace.edge1[2]];
+                cube[eFace.edge4[0]][eFace.edge4[3]] = copy[eFace.edge1[0]][eFace.edge1[3]];
                 break;
-            case "cc":
-            break;
         }
 
     }
