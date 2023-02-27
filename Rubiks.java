@@ -1,7 +1,4 @@
 import java.util.Scanner;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 
@@ -168,23 +165,23 @@ public class Rubiks {
             
                 //White Side
                 case 5:
-                    edge1[0] = 3;
+                    edge1[0] = 1;
                     edge1[1] = 2;
                     edge1[2] = 5;
                     edge1[3] = 8;
 
                     
-                    edge2[0] = 2;
+                    edge2[0] = 0;
                     edge2[1] = 2;
                     edge2[2] = 5;
                     edge2[3] = 8;
 
-                    edge3[0] = 1;
+                    edge3[0] = 3;
                     edge3[1] = 0;
                     edge3[2] = 3;
                     edge3[3] = 6;
 
-                    edge4[0] = 0;
+                    edge4[0] = 2;
                     edge4[1] = 2;
                     edge4[2] = 5;
                     edge4[3] = 8;
@@ -196,7 +193,7 @@ public class Rubiks {
     }
 
     public void turnFace(int index, String direction) {
-        edgedFace eface = new edgedFace(index);
+        edgedFace eFace = new edgedFace(index);
 
         String [][] copy = new String[6][9];
 
