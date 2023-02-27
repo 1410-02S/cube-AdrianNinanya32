@@ -1,3 +1,4 @@
+import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -67,15 +68,126 @@ public class Rubiks {
                     edge4[2] = 5;
                     edge4[3] = 8;
                     break;
+
+                //Blue side    
                 case 1:
+                    edge1[0] = 2;
+                    edge1[1] = 2;
+                    edge1[2] = 5;
+                    edge1[3] = 8;
+
+                    
+                    edge2[0] = 4;
+                    edge2[1] = 2;
+                    edge2[2] = 5;
+                    edge2[3] = 8;
+
+                    edge3[0] = 0;
+                    edge3[1] = 0;
+                    edge3[2] = 3;
+                    edge3[3] = 6;
+
+                    edge4[0] = 5;
+                    edge4[1] = 2;
+                    edge4[2] = 5;
+                    edge4[3] = 8;
                     break;
+
+                //Orange Side
                 case 2:
+                    edge1[0] = 3;
+                    edge1[1] = 2;
+                    edge1[2] = 5;
+                    edge1[3] = 8;
+
+                    
+                    edge2[0] = 4;
+                    edge2[1] = 2;
+                    edge2[2] = 5;
+                    edge2[3] = 8;
+
+                    edge3[0] = 1;
+                    edge3[1] = 0;
+                    edge3[2] = 3;
+                    edge3[3] = 6;
+
+                    edge4[0] = 5;
+                    edge4[1] = 2;
+                    edge4[2] = 5;
+                    edge4[3] = 8;
                     break;
+
+                //Green Side    
                 case 3:
+                    edge1[0] = 0;
+                    edge1[1] = 2;
+                    edge1[2] = 5;
+                    edge1[3] = 8;
+
+                    
+                    edge2[0] = 4;
+                    edge2[1] = 2;
+                    edge2[2] = 5;
+                    edge2[3] = 8;
+
+                    edge3[0] = 2;
+                    edge3[1] = 0;
+                    edge3[2] = 3;
+                    edge3[3] = 6;
+
+                    edge4[0] = 5;
+                    edge4[1] = 2;
+                    edge4[2] = 5;
+                    edge4[3] = 8;
                     break;
+
+                //Yellow Side    
                 case 4:
+                    edge1[0] = 1;
+                    edge1[1] = 2;
+                    edge1[2] = 5;
+                    edge1[3] = 8;
+
+                    
+                    edge2[0] = 2;
+                    edge2[1] = 2;
+                    edge2[2] = 5;
+                    edge2[3] = 8;
+
+                    edge3[0] = 3;
+                    edge3[1] = 0;
+                    edge3[2] = 3;
+                    edge3[3] = 6;
+
+                    edge4[0] = 0;
+                    edge4[1] = 2;
+                    edge4[2] = 5;
+                    edge4[3] = 8;
                     break;
+
+            
+                //White Side
                 case 5:
+                    edge1[0] = 3;
+                    edge1[1] = 2;
+                    edge1[2] = 5;
+                    edge1[3] = 8;
+
+                    
+                    edge2[0] = 2;
+                    edge2[1] = 2;
+                    edge2[2] = 5;
+                    edge2[3] = 8;
+
+                    edge3[0] = 1;
+                    edge3[1] = 0;
+                    edge3[2] = 3;
+                    edge3[3] = 6;
+
+                    edge4[0] = 0;
+                    edge4[1] = 2;
+                    edge4[2] = 5;
+                    edge4[3] = 8;
                     break;
             }
         }
@@ -178,9 +290,101 @@ public class Rubiks {
 
     public static void main(String[]args){
 
+        Scanner in = new Scanner (System.in);
+
         Rubiks Rubikscube = new Rubiks();
 
-        Rubikscube.showCube();
+
+        boolean proceed = true;
+
+        while(proceed){
+            
+            String input = in.nextLine();
+
+            switch (input) {
+
+                //Yellow Clock
+                case "u":
+                    Rubikscube.turnFace(4, "c");
+                    Rubikscube.showCube();
+                    break;
+                //Yellow Cc
+                case "u'":
+                    Rubikscube.turnFace(4, "cc");
+                    Rubikscube.showCube();
+                    break;
+                //White Clock
+                case "d":
+                    Rubikscube.turnFace(5, "c");
+                    Rubikscube.showCube();
+                    break;
+
+                //White Cc
+                case "d'":
+                    Rubikscube.turnFace(5, "cc");
+                    Rubikscube.showCube();
+                    break;
+
+                //Red Clockwise
+                case "r":
+                    Rubikscube.turnFace(0, "c");
+                    Rubikscube.showCube();
+                    break;
+
+                //Red Cc
+                case "r'":
+                    Rubikscube.turnFace(0, "cc");
+                    Rubikscube.showCube();
+                    break;
+
+                //Orange Clockwise
+                case "l":
+                    Rubikscube.turnFace(2, "c");
+                    Rubikscube.showCube();
+                    break;
+
+                //Orange Cc
+                case "l'":
+                    Rubikscube.turnFace(2, "cc");
+                    Rubikscube.showCube();
+                    break;
+
+                //Blue Clockwise
+                case "f":
+                    Rubikscube.turnFace(1, "c");
+                    Rubikscube.showCube();
+                    break;
+
+                //Blue Cc
+                case "f'":
+                    Rubikscube.turnFace(1, "cc");
+                    Rubikscube.showCube();
+                    break;
+
+                //Green Clockwise
+                case "b":
+                    Rubikscube.turnFace(3, "c");
+                    Rubikscube.showCube();
+                    break;
+
+                //Green CC
+                case "b'":
+                    Rubikscube.turnFace(3, "cc");
+                    Rubikscube.showCube();
+                    break;
+
+                //Solutions
+                case "s":
+
+                    break;
+                //Quit
+                case "q":
+                    proceed = false;
+                    break;
+            }
+
+
+        }
 
     }
 
