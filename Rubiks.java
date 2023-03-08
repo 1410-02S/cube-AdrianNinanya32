@@ -1,6 +1,7 @@
 import java.util.Scanner;
 import java.util.ArrayList;
-
+import java.util.Collections;
+import java.util.List;
 
 public class Rubiks {
 
@@ -284,20 +285,6 @@ public class Rubiks {
         }
     }
 
-    public String reverseString (String x) {
-
-        char ch;
-        String nstr = "";
-
-        for (int i = 0; i < x.length(); i++) {
-            ch = x.charAt(i);
-            nstr = ch + nstr;
-        }
-
-        return nstr;
-
-    }
-
 
     public static void main(String[]args){
 
@@ -308,10 +295,13 @@ public class Rubiks {
 
         boolean proceed = true;
 
+        //List to save the inputs
+        List <String> list = new ArrayList<String>();  
+
         while(proceed){
             
             String input = in.nextLine();
-            String solve = "";
+
 
             switch (input) {
 
@@ -319,87 +309,89 @@ public class Rubiks {
                 case "u":
                     Rubikscube.turnFace(4, "c");
                     Rubikscube.showCube();
-                    solve += "u ";
+                    list.add("u");
                     break;
                 //Yellow Cc
                 case "u'":
                     Rubikscube.turnFace(4, "cc");
                     Rubikscube.showCube();
-                    solve += "u' ";
+                    list.add("u'");
                     break;
                 //White Clock
                 case "d":
                     Rubikscube.turnFace(5, "c");
                     Rubikscube.showCube();
-                    solve += "d ";
+                    list.add("d");
                     break;
 
                 //White Cc
                 case "d'":
                     Rubikscube.turnFace(5, "cc");
                     Rubikscube.showCube();
-                    solve += "d' ";
+                    list.add("d'");
                     break;
 
                 //Red Clockwise
                 case "r":
                     Rubikscube.turnFace(0, "c");
                     Rubikscube.showCube();
-                    solve += "r ";
+                    list.add("r");
                     break;
 
                 //Red Cc
                 case "r'":
                     Rubikscube.turnFace(0, "cc");
                     Rubikscube.showCube();
-                    solve += "r' ";
+                    list.add("r'");
                     break;
 
                 //Orange Clockwise
                 case "l":
                     Rubikscube.turnFace(2, "c");
                     Rubikscube.showCube();
-                    solve += "l ";
+                    list.add("l");
                     break;
 
                 //Orange Cc
                 case "l'":
                     Rubikscube.turnFace(2, "cc");
                     Rubikscube.showCube();
-                    solve += "l' ";
+                    list.add("l'");
                     break;
 
                 //Blue Clockwise
                 case "f":
                     Rubikscube.turnFace(1, "c");
                     Rubikscube.showCube();
-                    solve += "f ";
+                    list.add("f");
                     break;
 
                 //Blue Cc
                 case "f'":
                     Rubikscube.turnFace(1, "cc");
                     Rubikscube.showCube();
-                    solve += "f' ";
+                    list.add("f'" );
                     break;
 
                 //Green Clockwise
                 case "b":
                     Rubikscube.turnFace(3, "c");
                     Rubikscube.showCube();
-                    solve += "b ";
+                    list.add("b");
                     break;
 
                 //Green CC
                 case "b'":
                     Rubikscube.turnFace(3, "cc");
                     Rubikscube.showCube();
-                    solve += "b' ";
+                    list.add("b'");
                     break;
 
                 //Solutions
                 case "s":
-                    System.out.println("Here are the steps to solve the cube" + Rubikscube.reverseString(solve));
+                //Reversing list
+                    Collections.reverse(list);
+                    System.out.println("To solve the program do " + list);
                     break;
                 //Quit
                 case "q":
