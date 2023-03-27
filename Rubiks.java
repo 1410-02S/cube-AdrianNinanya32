@@ -3,6 +3,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+
+// Looks complete enough to me, could use some tweaking for usability but is otherwise just fine.
+// Good job on this one.
+
 public class Rubiks {
 
     String [][] cube = {{
@@ -299,6 +303,8 @@ public class Rubiks {
         List <String> list = new ArrayList<String>();  
 
         while(proceed){
+
+            //Inside this main loop you should relaly give a prompt of some sort. For example you could say u is a command and that it rotates the top side.
             
             String input = in.nextLine();
 
@@ -397,6 +403,8 @@ public class Rubiks {
                 case "q":
                     proceed = false;
                     break;
+
+                //You need to handle default cases, otherwise its not obvious to the user what has happened when they incorrectly enter something.
             }
 
 
